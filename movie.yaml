@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: movie-service
+  labels:
+    app: movie
+spec:
+  containers:
+   - name: dony-flask
+     image: yeavov/flask_dony:latest 
+     ports:
+     - containerPort: 65432
+   - name: dony-nginx
+     image: yeavov/nginx_dony:latest
+     ports:
+     - containerPort: 80 

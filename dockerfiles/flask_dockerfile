@@ -2,8 +2,10 @@ FROM python:3
 
 WORKDIR /app
 
-COPY . .
-
+RUN apt update && apt upgrade -y
+RUN apt install git -y
+RUN git clone https://github.com/yellowjung/docker-movie-project.git
+RUN cp docker-movie-project/forflask/* . 
 RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 65432

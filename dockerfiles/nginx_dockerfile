@@ -2,8 +2,7 @@ FROM nginx
 WORKDIR /usr/share/
 RUN apt update && apt upgrade -y
 RUN apt install git -y
-RUN git clone https://github.com/DevenRathod2/simple-movie-website-html
-RUN mv simple-movie-website-html html
-RUN cp -r html/* /usr/share/nginx/html
+RUN git clone https://github.com/yellowjung/docker-movie-project.git
+RUN cp -r docker-movie-project/simple_movie/* /usr/share/nginx/html
 EXPOSE 80
 

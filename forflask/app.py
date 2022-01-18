@@ -1,8 +1,10 @@
 from flask import Flask, request, Response
 from flask_restx import Resource, Api, fields
 from flask import abort, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 ns_movies = api.namespace('ns_movies', description='Movies APIs')

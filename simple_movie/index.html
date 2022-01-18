@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset='utf-8'>
+  <title>Deven Rathod -Free Movie Server</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ <script src="script.js"></script>
+ 
+    
+</head>
+
+<div class="c2">
+         <marquee><p>Made With 💙
+ by Deven </p></marquee>
+</div>
+<body>
+<header>
+  <div class="nav">
+  <hr/>
+<nav>
+
+  <ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="https://api.whatsapp.com/send?phone=+911234567890&text=please%20add%20the%20movie">Request movie</a></li>
+  <li><a href="https://api.whatsapp.com/send?phone=+911234567890&text=want%20to%20contact%20you">Contact</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="upload.html">Upload Movies</a></li>
+
+   </ul>
+
+</nav>
+<hr/>
+</div>
+  <h1 class="headh1">Welcome To Free Movie Server</h1>
+     <h2 class="headh1">click on Show Button to see all movies</h2>
+     
+  <button class="nbtn" onclick="filterSelection('all')">Show</button>
+  
+  </header>
+
+
+<!-- movie upload code  -->
+<div class="cards">
+<!-- <a href="movies/Evil Dead 2013.mp4" download><div class="row"> -->
+  <div class="column nature">
+    <div class="content">
+      <img id="Hello" src="assets/1.jpg" alt="Mountains" style="width:100%", onclick="get(this.id)">
+      <h4>Evil Dead 2013</h4>
+      
+    </div>
+    <!-- </a> -->
+  </div>
+  <div class="column cars">
+    <div class="content">
+      <img id="justice" onclick="get(this.id)" src="assets/5.jpg" alt="Car" style="width:100%">
+      <h4>Dawn of Justice</h4>
+    </div>
+  </div>
+  <div class="column cars">
+    <div class="content">
+      <img id="suicide" onclick="get(this.id)" img src="assets/6.jpg" alt="Car" style="width:100%">
+      <h4>Suicide Squad</h4>
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+      <img id="john1" onclick="get(this.id)" img src="assets/7.jpg" alt="People" style="width:100%" download>
+      <h4>John Wick Chapter 1</h4>
+    </div>
+    <a href="movies/John.Wick2.mkv" download>
+  </div>
+  <div class="column people">
+    <div class="content">
+      <img id="john2" img src="assets/8.jpg" alt="People" style="width:100%">
+      <h4>John Wick Chapter 2</h4>
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+      <img id="john3" img src="assets/9.jpg" alt="People" style="width:100%">
+      <h4>John Wick Chapter 3</h4>
+    </div>
+  </div>
+
+<!-- END GRID -->
+</div>
+
+
+  <!-- <footer>
+    <div>
+   Created by DevelopeSpot 
+    </div>
+  </footer> -->
+
+<script>
+function get(id){
+  $.ajax({
+    url:"http://nginx_dony:65432/ns_movies/movies/" + id,
+    method: "GET",
+    dataType: "json",
+    contentType: "application/json",
+    success : function(resp){
+      var info = resp.data
+      var name = info["name"]
+      var price = info["price"]
+      var desc = info["descript"]
+      alert("제목 : " + name + "\n" + "가격 : " + price + "\n" + "내용 : " + desc)
+    },
+    error : function(){
+      alert("영화 정보가 없습니다!")
+    }
+  })
+}
+</script>
+</body>
+</html>

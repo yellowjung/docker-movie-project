@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+</body>
+</html>
+
+<script charset="UTF-8">
+    let val1, val2, val3;
+    let getParam = function(qs) {
+
+        let params = location.search.substr(location.search.indexOf("?") + 1);
+        let sval = "";
+  
+        params = params.split("&");
+
+        for (var i = 0; i < params.length; i++) {
+            temp = params[i].split("=");
+            if ([temp[0]] == qs) { sval = temp[1]; }
+        }
+        return sval;
+    }
+    val1 = getParam('name')
+    val2 = getParam('price')
+    val3 = getParam('desc')
+    val3 = decodeURIComponent(val3)
+    document.write('Name : ' + val1 + '<br>')
+    document.write('price : ' + val2 + '<br>')
+    document.write('desc : ' + val3 + '<br>')
+</script>

@@ -34,7 +34,7 @@ class movies_name(Resource):
   # 영화 정보 조회
   def get(self, name):
     if not name in movie_info.keys():
-      abort(404, description=f"Brand {name} doesn't exist")
+      abort(404, description=f"Movie {name} doesn't exist")
     data = movie_info[name]
 
     return {
@@ -70,7 +70,7 @@ class movies_name(Resource):
     global movie_info
 
     if not name in movie_info.keys():
-      abort(404, description=f"Brand {name} doesn't exists")
+      abort(404, description=f"Movie {name} doesn't exists")
     
     params = request.get_json()
     movie_info[name] = params

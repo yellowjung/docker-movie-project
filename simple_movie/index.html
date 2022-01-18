@@ -94,10 +94,10 @@
     </div>
   </footer> -->
 
-<script>
+<script charset="UTF-8">
 function get(id){
   $.ajax({
-    url:"http://nginx_dony:65432/ns_movies/movies/" + id,
+    url:"http://172.30.6.81:65432/ns_movies/movies/" + id,
     method: "GET",
     dataType: "json",
     contentType: "application/json",
@@ -106,7 +106,8 @@ function get(id){
       var name = info["name"]
       var price = info["price"]
       var desc = info["descript"]
-      alert("제목 : " + name + "\n" + "가격 : " + price + "\n" + "내용 : " + desc)
+      // alert("제목 : " + name + "\n" + "가격 : " + price + "\n" + "내용 : " + desc)
+      window.location.href="descript.html?name=" + name + "&price=" + price + "&desc=" + desc;
     },
     error : function(){
       alert("영화 정보가 없습니다!")
@@ -116,3 +117,4 @@ function get(id){
 </script>
 </body>
 </html>
+
